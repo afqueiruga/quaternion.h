@@ -12,7 +12,7 @@ Everyone hand rolls their own library for quaternions; here's mine. It was an im
 
 The useful part of note is the equation for rate-of-change of quaternions,
 ```
-dqdt = 0.5 * q . (0+w)
+dq/dt = 0.5 * (0+w) . q
 ```
 where `w` is the angular velocity vector (and `0+w` is augmenting it with a zero scalar to use quaternion algebra.) There are two versions depending on which frame the angular velocity is measured in---so watch out. The formulation is quite stable when using RK4 and very unstable using forward Euler. I would re-normalize it every timestep anyways. 
 
